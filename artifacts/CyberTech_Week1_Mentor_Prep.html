@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberTech Week 1 — Problem Shortlist & Mentor Prep</title>
+<style>
+  :root {
+    --bg: #0f1419;
+    --card: #1a2332;
+    --accent: #3b82f6;
+    --accent2: #06b6d4;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --border: #2d3a4f;
+    --green: #22c55e;
+    --orange: #f59e0b;
+    --red: #ef4444;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    padding: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 1.7rem; margin-bottom: 6px; }
+  .subtitle { color: var(--muted); margin-bottom: 28px; font-size: 0.95rem; }
+  .nav {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px;
+  }
+  .nav a {
+    background: var(--card); border: 1px solid var(--border);
+    color: var(--text); text-decoration: none;
+    padding: 8px 14px; border-radius: 20px; font-size: 0.85rem;
+    transition: all 0.15s;
+  }
+  .nav a:hover { border-color: var(--accent); color: var(--accent2); }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin-bottom: 20px;
+  }
+  section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .tag {
+    font-size: 0.7rem; padding: 3px 9px; border-radius: 12px;
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em;
+  }
+  .tag-priority { background: #166534; color: #bbf7d0; }
+  .tag-support { background: #1e3a5f; color: #93c5fd; }
+  .tag-complex { background: #7c2d12; color: #fdba74; }
+  .grid { display: grid; gap: 14px; }
+  @media(min-width: 640px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+  .box {
+    background: #0f172a; border-radius: 10px; padding: 14px 16px;
+    border-left: 3px solid var(--accent);
+  }
+  .box h3 { font-size: 0.9rem; color: var(--accent2); margin-bottom: 6px; }
+  .box p, .box ul { font-size: 0.9rem; color: var(--muted); }
+  ul { padding-left: 18px; }
+  li { margin-bottom: 4px; }
+  .questions li { margin-bottom: 10px; }
+  .highlight {
+    background: linear-gradient(90deg, #1e3a5f, #0f172a);
+    border: 1px solid #3b82f6;
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin: 18px 0;
+  }
+  .meta { font-size: 0.8rem; color: var(--muted); margin-top: 20px; }
+  a.anchor { scroll-margin-top: 20px; }
+</style>
+</head>
+<body>
+
+<h1>CyberTech — Week 1 Shortlist</h1>
+<p class="subtitle">Problem Discovery · Technical Mentor Prep · 11 Oct 2026</p>
+
+<nav class="nav">
+  <a href="#legacy">Legacy IoT/OT</a>
+  <a href="#deepfake">Deepfake Fraud</a>
+  <a href="#llm">LLM Protection</a>
+  <a href="#quantum">Quantum / PQC</a>
+  <a href="#questions">Technical Questions</a>
+  <a href="#structure">Meeting Structure</a>
+</nav>
+
+<!-- ===================== LEGACY IoT ===================== -->
+<section id="legacy" class="anchor">
+  <h2>Legacy IoT / OT Security <span class="tag tag-priority">Priority</span></h2>
+  
+  <p style="margin-bottom:14px; color:var(--muted)">
+    Old industrial and IoT devices (cameras, PLCs, SCADA, routers) cannot be patched, are often invisible, and are actively used by attackers for botnets, lateral movement and infrastructure disruption. 
+    <strong style="color:var(--text)">Idea direction:</strong> protect the network around the devices (inventory → risk scoring → isolation & monitoring) instead of trying to secure the devices themselves.
+  </p>
+
+  <div class="grid grid-2">
+    <div class="box">
+      <h3>Why it hurts</h3>
+      <ul>
+        <li>68% of critical infrastructure orgs lack full OT visibility</li>
+        <li>42% say legacy unpatchable OT is their biggest risk</li>
+        <li>Devices stay 10–20 years; vendors stopped updates long ago</li>
+        <li>Default/hard-coded passwords, unencrypted protocols</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>Who feels the pain</h3>
+      <ul>
+        <li>Energy, water, mining, manufacturing, hospitals</li>
+        <li>OT/IT leads and plant engineers</li>
+        <li>Smaller factories & utilities (underserved market)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <strong>Recommended focus (from Varduhi’s analysis):</strong> Option A — Legacy OT visibility for industrial & critical infrastructure. Clearer pain (downtime + safety) and clearer payer than pure SMB IoT or pure CRA compliance.
+  </div>
+
+  <div class="box" style="margin-top:14px">
+    <h3>Test hypothesis (ready for interviews)</h3>
+    <p>We believe that Armenian infrastructure and industrial organizations do not have an up-to-date list of their OT/IoT devices and firmware versions.<br>
+    We will interview 5 engineers / IT leads and measure how many cannot state the number of devices and their firmware status.<br>
+    <strong>We are right if ≥ 4 out of 5 cannot.</strong></p>
+  </div>
+</section>
+
+<!-- ===================== DEEPFAKE ===================== -->
+<section id="deepfake" class="anchor">
+  <h2>Deepfake & Money Fraud <span class="tag tag-support">Strong contender</span></h2>
+  
+  <p style="margin-bottom:14px; color:var(--muted)">
+    AI voice & video clones are used for CEO fraud, supplier impersonation and emergency scams. Only ~3 seconds of audio are needed. Losses already exceed $1.5–2.2B globally.
+  </p>
+
+  <div class="grid grid-2">
+    <div class="box">
+      <h3>Key numbers</h3>
+      <ul>
+        <li>FBI: $893M AI-related fraud losses (US, 2025)</li>
+        <li>Average business incident: $145k–$600k</li>
+        <li>High-profile cases: €95M (Fideuram), $25M+ (Arup)</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>Possible angles</h3>
+      <ul>
+        <li>Real-time detection inside telecom network</li>
+        <li>Continuous authentication for finance teams</li>
+        <li>Solutions that do not require end-user apps</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LLM ===================== -->
+<section id="llm" class="anchor">
+  <h2>LLM Application Protection <span class="tag tag-support">Technical / high upside</span></h2>
+  
+  <p style="margin-bottom:14px; color:var(--muted)">
+    Companies deploy chatbots, RAG systems and AI agents faster than they can secure them. Prompt injection remains #1 (OWASP 2026); Excessive Agency rose sharply to #3.
+  </p>
+
+  <div class="box">
+    <h3>Core risks</h3>
+    <ul>
+      <li>Prompt injection (direct & indirect)</li>
+      <li>Sensitive data leakage through RAG / tools</li>
+      <li>Agents taking unintended real-world actions</li>
+      <li>Shadow AI and unmonitored agent tool use</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== QUANTUM ===================== -->
+<section id="quantum" class="anchor">
+  <h2>Quantum / Post-Quantum Cryptography <span class="tag tag-complex">Supporting angle</span></h2>
+  
+  <p style="margin-bottom:14px; color:var(--muted)">
+    Quantum computers will eventually break RSA/ECC. The realistic near-term opportunity is <strong>not</strong> building quantum hardware or QKD, but helping organizations prepare for the transition.
+  </p>
+
+  <div class="grid grid-2">
+    <div class="box">
+      <h3>Realistic for our team</h3>
+      <ul>
+        <li><strong>High:</strong> Cryptographic inventory tools</li>
+        <li><strong>High:</strong> Linking quantum risk to legacy IoT devices</li>
+        <li>Medium: Compliance / migration support</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>Low feasibility</h3>
+      <ul>
+        <li>Building quantum computers</li>
+        <li>Pure Quantum Key Distribution (QKD)</li>
+        <li>Deep cryptographic research</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <strong>Recommendation:</strong> Do not make quantum a standalone main problem. Use it as extra value for the Legacy IoT direction:<br>
+    “Our tool shows not only which devices are vulnerable today, but also which ones will not survive the quantum transition.”
+  </div>
+</section>
+
+<!-- ===================== QUESTIONS ===================== -->
+<section id="questions" class="anchor">
+  <h2>Technical Questions for the Mentor</h2>
+  <p style="color:var(--muted); margin-bottom:16px">These questions help you understand feasibility, architecture choices and what a realistic MVP looks like for a student team.</p>
+
+  <ol class="questions" style="padding-left:20px">
+    <li><strong>Architecture & Approach</strong><br>
+      For legacy OT/IoT visibility — is a purely passive (network-listening) approach realistic as an MVP, or do we need some form of agent or active scanning from day one?</li>
+    
+    <li><strong>Data & Detection</strong><br>
+      What are the main practical ways to fingerprint and identify unknown industrial devices without having signatures for every vendor?</li>
+    
+    <li><strong>Risk Scoring</strong><br>
+      How would you recommend prioritising devices? (CVEs + exposure + criticality of the process they control?)</li>
+    
+    <li><strong>Isolation strategies</strong><br>
+      In real industrial environments, how do companies actually isolate risky legacy devices without breaking production? What usually goes wrong?</li>
+    
+    <li><strong>Team capability</strong><br>
+      Given our current mix of skills (one software engineer + people with limited deep IT background), which technical direction is most realistic to prototype in 4–6 weeks?</li>
+    
+    <li><strong>MVP scope</strong><br>
+      What is the smallest useful thing we could show: a discovery + inventory dashboard, a risk report generator, or something else?</li>
+    
+    <li><strong>Data sources</strong><br>
+      Are there open datasets, traffic captures, or lab environments you would recommend for testing OT/IoT discovery ideas?</li>
+    
+    <li><strong>Deepfake technical path</strong> (if the conversation goes there)<br>
+      For real-time voice deepfake detection — what are the current practical approaches that can run with low latency (on-device, edge, or network-level)?</li>
+    
+    <li><strong>LLM security</strong> (backup topic)<br>
+      For protecting internal RAG / agent applications, where do you see the biggest remaining gaps that smaller teams could still address?</li>
+    
+    <li><strong>Reality check</strong><br>
+      Looking at our shortlist, which problem has the highest chance of a working technical prototype within the incubation timeline, and why?</li>
+  </ol>
+</section>
+
+<!-- ===================== MEETING STRUCTURE ===================== -->
+<section id="structure" class="anchor">
+  <h2>Suggested 30–40 min Structure</h2>
+  <div class="grid">
+    <div class="box">
+      <h3>0–5 min</h3>
+      <p>Quick team + context: “We are in Problem Discovery week. We have narrowed to 2–3 directions and need technical feasibility input.”</p>
+    </div>
+    <div class="box">
+      <h3>5–15 min</h3>
+      <p>Present the top 1–2 problems (Legacy OT first, then Deepfake or LLM). Keep each under 4 minutes. Focus on pain + current workarounds + what you are still unsure about technically.</p>
+    </div>
+    <div class="box">
+      <h3>15–35 min</h3>
+      <p>Ask the technical questions above. Let the mentor talk. Take notes on architecture ideas, risks, and what he considers realistic for a student team.</p>
+    </div>
+    <div class="box">
+      <h3>Last 5 min</h3>
+      <p>Clarify next steps: “What should we validate or prototype first this week?” + any introductions he can make.</p>
+    </div>
+  </div>
+</section>
+
+<p class="meta">
+  Combined from team Docs (Phil + Varduhi) · Prepared for technical mentor 1-on-1 · Oct 2026
+</p>
+
+</body>
+</html>

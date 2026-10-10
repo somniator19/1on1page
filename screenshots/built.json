@@ -1,0 +1,40 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "CyberTech · Week 1",
+      "hasCanvas": false,
+      "bodyTextLen": 5298,
+      "bodyTextHash": "942f0160d9b7570042690ed97e24ce2b66112de0f251cb61529b7533a4bf1f76",
+      "bodyTextPrefix": "Overview Legacy IoT/OT Deepfake LLM Protection Backups API Misus",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "CyberTech · Week 1",
+      "hasCanvas": false,
+      "bodyTextLen": 5298,
+      "bodyTextHash": "942f0160d9b7570042690ed97e24ce2b66112de0f251cb61529b7533a4bf1f76",
+      "bodyTextPrefix": "Overview Legacy IoT/OT Deepfake LLM Protection Backups API Misus",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/built.json",
+  "divergesFromBaseline": true,
+  "baselineReasons": [
+    "desktop: body text replaced (similar length, page start changed)"
+  ]
+}
